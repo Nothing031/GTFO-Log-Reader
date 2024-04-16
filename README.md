@@ -1,6 +1,6 @@
 # GTFO-Log-Reader
 * [Download](https://github.com/Nothing031/GTFO-Log-Reader/releases/download/1.0.0/GTFO.Log.Reader.Bundle.zip)
-* map by D4RKEVA https://steamcommunity.com/sharedfiles/filedetails/?id=3166671266
+* Map by D4RKEVA https://steamcommunity.com/sharedfiles/filedetails/?id=3166671266
 # Virus Total
 * [GTFO Log Reader](https://www.virustotal.com/gui/file/335fe2e3e2f34d5f4ccc802abada5bf7569d60db3eb9721424ba1a2e2a5b7ecc)
 * [Map Json Maker](https://www.virustotal.com/gui/file/69a1e81aca44bd5d281408d7b9decc213cd3fd6908cf4da4c6099fff8bf912b1)
