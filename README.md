@@ -6,7 +6,7 @@
 * [Map Json Maker](https://www.virustotal.com/gui/file/69a1e81aca44bd5d281408d7b9decc213cd3fd6908cf4da4c6099fff8bf912b1)
 # Usage
 * GTFO Log Reader requires map image file and json file for open image and mark
-* if json file is not exists you can make it by Map Json Maker.exe
+* you can make json file via Map Json Maker.exe
 ### GTFO Log Reader
 * run gtfo
 * run GTFO Log Reader.exe
