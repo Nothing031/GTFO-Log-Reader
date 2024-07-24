@@ -1,4 +1,5 @@
 # GTFO-Log-Reader
+* ![20240724_124229](https://github.com/user-attachments/assets/adc56894-d114-49c2-8a23-65fd729a5743)
 * [Download](https://github.com/Nothing031/GTFO-Log-Reader/releases/download/1.0.0/GTFO.Log.Reader.Bundle.zip)
 * Map by D4RKEVA https://steamcommunity.com/sharedfiles/filedetails/?id=3166671266
 # Virus Total
