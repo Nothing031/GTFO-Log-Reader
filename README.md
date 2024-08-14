@@ -13,7 +13,7 @@
 * run GTFO Log Reader.exe
 * done
 * GTFO Log Reader is fully automatic
-* you just need to open marked image when it open file explorer
+* you just need to open marked image when it opens file explorer
 ### Map Json Maker
 * drag and drop image on to program and press enter
 * click containers in order
