@@ -5,3 +5,7 @@
 /.vs
 /GTFO_Log_Reader/.vs/GTFO_Log_Reader/v17
 /GTFO_Log_Reader/.vs/GTFO_Log_Reader/FileContentIndex
+/GTFO_Log_Reader/x64/Debug
+/x64/Debug
+*.exe
+/GTFO_Log_Reader/text.txt
