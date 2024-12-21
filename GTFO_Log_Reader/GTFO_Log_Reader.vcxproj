@@ -140,9 +140,42 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\resource.h" />
     <ClInclude Include="src\LogReader.hpp" />
     <ClInclude Include="src\__data.hpp" />
     <ClInclude Include="src\__utils.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="src\Resource.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(1).wav" />
+    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(10).wav" />
+    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(11).wav" />
+    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(12).wav" />
+    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(13).wav" />
+    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(14).wav" />
+    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(15).wav" />
+    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(16).wav" />
+    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(17).wav" />
+    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(18).wav" />
+    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(19).wav" />
+    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(2).wav" />
+    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(20).wav" />
+    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(21).wav" />
+    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(22).wav" />
+    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(23).wav" />
+    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(24).wav" />
+    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(25).wav" />
+    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(26).wav" />
+    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(27).wav" />
+    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(3).wav" />
+    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(4).wav" />
+    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(5).wav" />
+    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(6).wav" />
+    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(7).wav" />
+    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(8).wav" />
+    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(9).wav" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
