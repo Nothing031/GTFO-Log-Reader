@@ -6,6 +6,8 @@
 /GTFO_Log_Reader/text.txt
 MAP/
 
+*.exe
+
 # User-specific files
 *.rsuser
 *.suo
