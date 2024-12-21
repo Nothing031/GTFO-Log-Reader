@@ -9,10 +9,12 @@
 #include <Windows.h>
 #include <ShlObj.h>
 
-#include "__utils.hpp"
 #include "__data.hpp"
 
 using namespace std;
+
+namespace fs = filesystem;
+
 
 class LogReader
 {

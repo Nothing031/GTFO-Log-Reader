@@ -13,7 +13,6 @@
 #include <nlohmann/json.hpp>
 
 #include "__data.hpp"
-#include "__utils.hpp"
 #include "LogReader.hpp"
 
 using namespace std;
@@ -30,11 +29,10 @@ HANDLE inputHandle;
 
 bool FORCEINJECT;
 
-//void gotoxy(int x, int y) {
-//	SetConsoleCursorPosition()
-//
-//}
-
+void gotoxy(int x, int y) {
+	COORD xy = { x, y };
+	SetConsoleCursorPosition(outputHandle, xy);
+}
 void PrintTyping(const string& _str, const bool& _endl, const int& delay) {
 	printMutex.lock();
 	for (int i = 0; i < _str.size(); i++) {
@@ -58,6 +56,12 @@ void PrintLoading() {
 			delay *= factor; // 딜레이를 점점 증가
 	}
 }
+
+inline bool FileExists(const string& filePath) {
+	ifstream ifs(filePath);
+	return ifs.good();
+}
+
 
 void AutoPause() {
 	while (true) {
@@ -130,8 +134,13 @@ void Init() {
 		SetConsoleMode(inputHandle, mode);
 	}
 
-
-
+	// set font
+	CONSOLE_FONT_INFOEX fontInfo;
+	fontInfo.cbSize = sizeof(CONSOLE_FONT_INFOEX);
+	GetCurrentConsoleFontEx(outputHandle, FALSE, &fontInfo);
+	fontInfo.dwFontSize.Y = 15;
+	SetCurrentConsoleFontEx(outputHandle, FALSE, &fontInfo);
+	
 
 }
 
@@ -154,7 +163,6 @@ int main() {
 	eCurrentProgress currentProgress;
 	vector<key_t> keys;
 	eLogState logState;
-
 	LogReader logReader;
 
 	// intro
