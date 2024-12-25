@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.Windows.CppWinRT.2.0.220531.1\build\native\Microsoft.Windows.CppWinRT.props" Condition="Exists('..\packages\Microsoft.Windows.CppWinRT.2.0.220531.1\build\native\Microsoft.Windows.CppWinRT.props')" />
   <Import Project="..\packages\OpenCV.2.4.11\build\native\OpenCV.props" Condition="Exists('..\packages\OpenCV.2.4.11\build\native\OpenCV.props')" />
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -71,6 +72,9 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <TargetName>GTFO Log Reader</TargetName>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -134,53 +138,38 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\audio.cpp" />
+    <ClCompile Include="src\Image.cpp" />
+    <ClCompile Include="src\LogReader.cpp" />
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\audio.h" />
+    <ClInclude Include="src\Image.h" />
+    <ClInclude Include="src\LogReader.h" />
     <ClInclude Include="src\resource.h" />
-    <ClInclude Include="src\LogReader.hpp" />
-    <ClInclude Include="src\__data.hpp" />
-    <ClInclude Include="src\__utils.hpp" />
+    <ClInclude Include="src\data.h" />
+    <ClInclude Include="src\utils.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="src\Resource.rc" />
   </ItemGroup>
   <ItemGroup>
-    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(1).wav" />
-    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(10).wav" />
-    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(11).wav" />
-    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(12).wav" />
-    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(13).wav" />
-    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(14).wav" />
-    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(15).wav" />
-    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(16).wav" />
-    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(17).wav" />
-    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(18).wav" />
-    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(19).wav" />
-    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(2).wav" />
-    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(20).wav" />
-    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(21).wav" />
-    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(22).wav" />
-    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(23).wav" />
-    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(24).wav" />
-    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(25).wav" />
-    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(26).wav" />
-    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(27).wav" />
-    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(3).wav" />
-    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(4).wav" />
-    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(5).wav" />
-    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(6).wav" />
-    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(7).wav" />
-    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(8).wav" />
-    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(9).wav" />
+    <Media Include="assets\Intro.wav" />
+    <Media Include="assets\Ping.wav" />
+    <Media Include="assets\Type.wav" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="assets\icon.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
     <Import Project="..\packages\OpenCV.2.4.11\build\native\OpenCV.targets" Condition="Exists('..\packages\OpenCV.2.4.11\build\native\OpenCV.targets')" />
     <Import Project="..\packages\nlohmann.json.3.11.2\build\native\nlohmann.json.targets" Condition="Exists('..\packages\nlohmann.json.3.11.2\build\native\nlohmann.json.targets')" />
+    <Import Project="..\packages\Microsoft.Windows.CppWinRT.2.0.220531.1\build\native\Microsoft.Windows.CppWinRT.targets" Condition="Exists('..\packages\Microsoft.Windows.CppWinRT.2.0.220531.1\build\native\Microsoft.Windows.CppWinRT.targets')" />
   </ImportGroup>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
@@ -189,5 +178,7 @@
     <Error Condition="!Exists('..\packages\OpenCV.2.4.11\build\native\OpenCV.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\OpenCV.2.4.11\build\native\OpenCV.props'))" />
     <Error Condition="!Exists('..\packages\OpenCV.2.4.11\build\native\OpenCV.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\OpenCV.2.4.11\build\native\OpenCV.targets'))" />
     <Error Condition="!Exists('..\packages\nlohmann.json.3.11.2\build\native\nlohmann.json.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\nlohmann.json.3.11.2\build\native\nlohmann.json.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Windows.CppWinRT.2.0.220531.1\build\native\Microsoft.Windows.CppWinRT.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Windows.CppWinRT.2.0.220531.1\build\native\Microsoft.Windows.CppWinRT.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Windows.CppWinRT.2.0.220531.1\build\native\Microsoft.Windows.CppWinRT.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Windows.CppWinRT.2.0.220531.1\build\native\Microsoft.Windows.CppWinRT.targets'))" />
   </Target>
 </Project>

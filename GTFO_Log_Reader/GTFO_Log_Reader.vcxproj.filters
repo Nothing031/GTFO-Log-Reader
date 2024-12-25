@@ -18,21 +18,36 @@
     <ClCompile Include="src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\LogReader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Image.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\audio.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\LogReader.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\__data.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\__utils.hpp">
+    <ClInclude Include="src\data.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\LogReader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Image.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\utils.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\audio.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -42,86 +57,19 @@
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
-    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(1).wav">
+    <Media Include="assets\Intro.wav">
       <Filter>Resource Files</Filter>
     </Media>
-    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(2).wav">
+    <Media Include="assets\Ping.wav">
       <Filter>Resource Files</Filter>
     </Media>
-    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(3).wav">
+    <Media Include="assets\Type.wav">
       <Filter>Resource Files</Filter>
     </Media>
-    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(4).wav">
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="assets\icon.ico">
       <Filter>Resource Files</Filter>
-    </Media>
-    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(5).wav">
-      <Filter>Resource Files</Filter>
-    </Media>
-    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(6).wav">
-      <Filter>Resource Files</Filter>
-    </Media>
-    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(7).wav">
-      <Filter>Resource Files</Filter>
-    </Media>
-    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(8).wav">
-      <Filter>Resource Files</Filter>
-    </Media>
-    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(9).wav">
-      <Filter>Resource Files</Filter>
-    </Media>
-    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(10).wav">
-      <Filter>Resource Files</Filter>
-    </Media>
-    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(11).wav">
-      <Filter>Resource Files</Filter>
-    </Media>
-    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(12).wav">
-      <Filter>Resource Files</Filter>
-    </Media>
-    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(13).wav">
-      <Filter>Resource Files</Filter>
-    </Media>
-    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(14).wav">
-      <Filter>Resource Files</Filter>
-    </Media>
-    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(15).wav">
-      <Filter>Resource Files</Filter>
-    </Media>
-    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(16).wav">
-      <Filter>Resource Files</Filter>
-    </Media>
-    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(17).wav">
-      <Filter>Resource Files</Filter>
-    </Media>
-    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(18).wav">
-      <Filter>Resource Files</Filter>
-    </Media>
-    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(19).wav">
-      <Filter>Resource Files</Filter>
-    </Media>
-    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(20).wav">
-      <Filter>Resource Files</Filter>
-    </Media>
-    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(21).wav">
-      <Filter>Resource Files</Filter>
-    </Media>
-    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(22).wav">
-      <Filter>Resource Files</Filter>
-    </Media>
-    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(23).wav">
-      <Filter>Resource Files</Filter>
-    </Media>
-    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(24).wav">
-      <Filter>Resource Files</Filter>
-    </Media>
-    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(25).wav">
-      <Filter>Resource Files</Filter>
-    </Media>
-    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(26).wav">
-      <Filter>Resource Files</Filter>
-    </Media>
-    <Media Include="..\..\..\..\..\Downloads\New Folder\sfx(27).wav">
-      <Filter>Resource Files</Filter>
-    </Media>
+    </Image>
   </ItemGroup>
 </Project>
