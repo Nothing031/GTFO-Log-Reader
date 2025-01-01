@@ -139,7 +139,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="src\audio.cpp" />
-    <ClCompile Include="src\Image.cpp" />
     <ClCompile Include="src\LogReader.cpp" />
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
@@ -148,7 +147,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\audio.h" />
-    <ClInclude Include="src\Image.h" />
+    <ClInclude Include="src\Marker.hpp" />
+    <ClInclude Include="src\JsonManager.hpp" />
     <ClInclude Include="src\LogReader.h" />
     <ClInclude Include="src\resource.h" />
     <ClInclude Include="src\data.h" />

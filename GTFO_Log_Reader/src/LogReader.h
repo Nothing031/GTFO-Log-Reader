@@ -14,7 +14,6 @@
 #include "utils.hpp"
 #include "data.h"
 
-
 class LogReader
 {
 public:
@@ -35,7 +34,6 @@ public:
     ~LogReader();
 
     bool Init(std::stack<CLEARINFO>* pStack);
-
     std::string getFilePath();
     bool LogSynchronousCheck();
 

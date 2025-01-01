@@ -21,9 +21,6 @@
     <ClCompile Include="src\LogReader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Image.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\audio.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -41,13 +38,16 @@
     <ClInclude Include="src\LogReader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Image.h">
+    <ClInclude Include="src\Marker.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\utils.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\audio.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\JsonManager.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

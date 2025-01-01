@@ -24,7 +24,6 @@ using namespace nlohmann;
 #define CONSOLE_CELL_Y 20
 #define CLEAR_INFO_MAX 16
 
-
 // GLOBAL VARIABLE
 bool NOIMAGE = true;
 

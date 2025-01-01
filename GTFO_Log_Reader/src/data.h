@@ -4,25 +4,41 @@
 #include <fstream>
 #include <filesystem>
 
-
 #define NPOS std::string::npos
 
 namespace Filters {
 	static constexpr const char* Lobby = ">Select";
-
-	static constexpr const char* b_GameStateManager = "GAMESTATEMANAGER";
-
-	static constexpr const char* c_NoLobby = "TO: NoL";
-	static constexpr const char* c_Generating = "TO: Ge";
 	static constexpr const char* ItemSpawning = "Next Batch: Distribution -";
 	static constexpr const char* ItemSpawned = "Next Batch: FunctionMarkerLeft";
+	static constexpr const char* b_GameStateManager = "GAMESTATEMANAGER";
+	static constexpr const char* c_NoLobby = "TO: NoL";
+	static constexpr const char* c_Generating = "TO: Ge";
 	static constexpr const char* c_StopElevatorRide = "TO: StopEle";
 	static constexpr const char* c_InLevel = "TO: InLe";
 	static constexpr const char* c_ExpeditionDone = "InLevel TO: Expe";
-
 	static constexpr const char* cc_ExpeditionSuccess = "Success";
 	static constexpr const char* cc_ExpeditionFail = "Fail";
 	static constexpr const char* cc_ExpeditionAbort = "Abort";
+}
+
+namespace InLevelFilters {
+	// ObjectiveClear
+	static constexpr const char* ObjectiveStateChanged = "----- NEW STATE";
+	static constexpr const char* c_MainObjectiveClear = "MAIN_STATUS: war";
+	static constexpr const char* c_SecondObjectiveClear = "SECOND_STATUS: war";
+	static constexpr const char* c_SecondObjectiveClear = "THIRD_STATUS: war";
+
+
+
+	// Doors
+	static constexpr const char* Door_Scan_Triggered = "LG_SecurityDoor_Locks";
+	static constexpr const char* Door_Opened = "OnDoorIsOpened:";
+
+	// Reactors
+	static constexpr const char* ReactorStartup_Start = "Reactor.OnStateCountUpdate: 1";
+	static constexpr const char* ReactorStartup_Count = "Reactor.OnStateCountUpdate: 1";
+	static constexpr const char* ReactorStartup_WarmmingUp = "Reactor.OnStateCountUpdate";
+	static constexpr const char* ReactorStartup_Done = "status: Startup_complete";
 }
 
 static constexpr const char* alphabets = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -46,22 +62,7 @@ enum COLOR {
 	LIGHT_WHITE = 15
 };
 
-typedef struct _KEY {
-	int ri;
-	int zone;
-	std::string name;
-}KEY;
 
-typedef struct _HSU {
-	std::string name;
-	std::string zone;
-	std::string area;
-}HSU;
-
-typedef struct _FACTOR {
-	int x;
-	int y;
-}FACTOR;
 
 enum class eExpeditionProgress {
 	NoLobby,
@@ -80,7 +81,53 @@ enum class eExpeditionEndState {
 	ExpeditionAbort
 };
 
+enum class eInlevelProgress {
+
+};
+
+enum class eWardenObjectives {
+	ReactorStartup //currently support
+};
+
+enum class eDistributions {
+
+};
+
+typedef struct _Position {
+	int x;
+	int y;
+}Position;
+
+typedef struct _KEY {
+	int ri;
+	int zone;
+	std::string name;
+}KEY;
+
+typedef struct _HSU {
+	std::string name;
+	std::string zone;
+	std::string area;
+}HSU;
+
+
+
+typedef struct _REACTORSTARTUP {
+	int startupTime;
+	int 
+
+
+
+}REACTOR_STARTUP_INFO;
+
+typedef struct _DOORINFO {
+	int index;
+	int zoneEnteredTime;
+	std::string zoneName = "ZONE_?";
+}DOORINFO;
+
 typedef struct _CLEARINFO {
+	bool isExpeditionEnd = false;
 	std::string clearTime;
 	std::string expedition;
 	eExpeditionEndState state;
@@ -97,16 +144,8 @@ typedef struct _EXPEDITION_INDEX {
 	int ExpeditionDone = 0;
 }EXPEDITION_INDEX;
 
-//typedef struct _LOG_FILE_DATA {
-//	bool synced = false;
-//	std::string logPath = "";
-//	std::ifstream logStream;
-//	std::streampos lastStreamPos = 0;
-//	std::vector<std::string> logData;
-//	int lastCheckedVectorIndex = 0;
-//}LOG_FILE_DATA;
-
 typedef struct _EXPEDITION_DATA {
+	// expedition data
 	int seed = 0;
 	size_t hash;
 	std::string name = "?";
@@ -114,6 +153,7 @@ typedef struct _EXPEDITION_DATA {
 	
 	EXPEDITION_INDEX Index;
 	
+	// generating data
 	std::vector<KEY> keys;
 	// HSU hsu; // not yet supported
 
@@ -122,13 +162,9 @@ typedef struct _EXPEDITION_DATA {
 	int clearTime = 0;
 	eExpeditionEndState expeditionEndState = eExpeditionEndState::ExpeditionAbort;
 
-	bool clearDataExported = false;
+	// inlevel data
+
+	// clearData
+
+
 }EXPEDITION_DATA;
-
-
-
-
-
-
-
-

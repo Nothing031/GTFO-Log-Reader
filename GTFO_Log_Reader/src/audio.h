@@ -1,9 +1,7 @@
-
 #pragma once
 #include <Windows.h>
 #include <mmsystem.h>
 #include "resource.h"
-
 
 #pragma comment(lib, "winmm.lib")
 
@@ -16,7 +14,6 @@ public:
 	};
 
 	static bool initSuccess;
-
 	static LPVOID pIntroWav;
 	static LPVOID pPingWav;
 	static LPVOID pTypeWav;
@@ -24,13 +21,3 @@ public:
 	static void Init();
 	static void Play(eAUDIO audio);
 };
-
-
-
-
-
-
-
-
-
-
