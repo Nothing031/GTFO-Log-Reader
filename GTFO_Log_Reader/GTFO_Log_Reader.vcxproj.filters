@@ -24,8 +24,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="opencv_world490.dll" />
-    <None Include="opencv_world490d.dll" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\data.h">

@@ -60,7 +60,6 @@ public:
 			circle(image, point, radius, Scalar(0, 255, 0), 2, LINE_AA);
 
 			// index
-			int fontFace = FONT_HERSHEY_SIMPLEX;
 			Point offset(0, radius / -2 - 20);
 			Point textPoint = point + offset;
 			putText(image, std::to_string(keys[i].index), textPoint, FONT_HERSHEY_SIMPLEX, 1, Scalar(0, 255, 0), 2, LINE_AA);
