@@ -33,7 +33,7 @@ public:
 		Position pos = { -1, -1 };
 
 		std::string filepath = GetPosJsonPath(expedition, zone);
-		if (std::filesystem::exists(filepath))
+		if (!std::filesystem::exists(filepath))
 			return pos;
 
 		std::ifstream i(filepath);
@@ -41,8 +41,8 @@ public:
 		i.close();
 		for (int eIndex = 0; eIndex < data.size(); eIndex++) {
 			if (data[eIndex]["index"] == index) {
-				pos.x = data[eIndex]["position"];
-				pos.y = data[eIndex]["position"];
+				pos.x = data[eIndex]["position"]["x"];
+				pos.y = data[eIndex]["position"]["y"];
 				return pos;
 			}
 		}

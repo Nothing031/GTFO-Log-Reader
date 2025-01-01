@@ -12,9 +12,11 @@
 
 #include <nlohmann/json.hpp>
 
-#include "audio.h"
+#include "AudioManager.hpp"
 #include "data.h"
 #include "LogReader.h"
+#include "Marker.hpp"
+#include "JsonManager.hpp"
 
 using namespace std;
 using namespace nlohmann;
@@ -33,6 +35,7 @@ HANDLE hConsoleInput;
 
 std::stack<CLEARINFO> clearInfoStack;
 ///////////////////
+
 #define SLEEP(duration) std::this_thread::sleep_for(std::chrono::milliseconds(duration))
 #define SET_COLOR(color) SetConsoleTextAttribute(hConsoleOutput, color);
 
@@ -57,7 +60,7 @@ inline void __IntroText() {
 void DisplayIntro() {
 	if (hGTFO == NULL) {
 		SLEEP(800);
-		audio::Play(audio::Intro);
+		AudioManager::Play(AudioManager::Intro);
 		SLEEP(150);
 		__IntroTextFailed();
 		SLEEP(20);
@@ -90,7 +93,7 @@ void DisplayIntro() {
 		}
 	}	
 	SLEEP(800);
-	audio::Play(audio::Intro);
+	AudioManager::Play(AudioManager::Intro);
 	SLEEP(150);
 	__IntroText();
 	SLEEP(20);
@@ -144,7 +147,6 @@ void ShowClearInfo() {
 	}
 }
 void HideKeys() {
-	audio::Play(audio::Ping);
 	// clear key
 	int x = 41;
 	int y = 1;
@@ -155,7 +157,8 @@ void HideKeys() {
 	}
 }
 void ShowKeys(vector<KEY>& keys) {
-	audio::Play(audio::Ping);
+	HideKeys();
+	AudioManager::Play(AudioManager::Ping);
 	// key classification
 	sort(keys.begin(), keys.end(), [](const KEY& key1, const KEY& key2) {return key1.zone < key2.zone; });
 	vector<KEY> colorKeys;
@@ -179,7 +182,7 @@ void ShowKeys(vector<KEY>& keys) {
 		for (int i = 0; i < bulkheadKeys.size(); i++) {
 			string name = AddPadding(bulkheadKeys[i].name, 22, ' ');
 			string zone = AddPadding(to_string(bulkheadKeys[i].zone), 7, ' ');
-			string ri = AddPadding(to_string(bulkheadKeys[i].ri), 2, ' ');
+			string ri = AddPadding(to_string(bulkheadKeys[i].index), 2, ' ');
 			// gotoxy;
 			gotoxy(x, ++y);
 			cout << name << "Zone: ";
@@ -198,7 +201,7 @@ void ShowKeys(vector<KEY>& keys) {
 		for (int i = 0; i < colorKeys.size(); i++) {
 			string name = AddPadding(colorKeys[i].name, 22, ' ');
 			string zone = AddPadding(to_string(colorKeys[i].zone), 7, ' ');
-			string ri = AddPadding(to_string(colorKeys[i].ri), 2, ' ');
+			string ri = AddPadding(to_string(colorKeys[i].index), 2, ' ');
 			gotoxy(x, ++y);
 			cout << name << "Zone: ";
 			SET_COLOR(YELLOW);
@@ -291,7 +294,7 @@ void Init() {
 int main() {
 	// Init
 	Init();
-	audio::Init();
+	AudioManager::Init();
 
 	// intro
 	DisplayIntro();
@@ -339,8 +342,11 @@ int main() {
 					logReader.FindKey();
 					if (logReader.expedition.keys.empty()) 
 						keyDisplayed = true; // no any key exists
-					else
+					else {
 						ShowKeys(logReader.expedition.keys);
+						if(Marker::MarkKeys(logReader.expedition.name, logReader.expedition.keys))
+							ShellExecuteA(NULL, "open", ".\\MAP", NULL, NULL, SW_SHOWDEFAULT);
+					}
 				}
 
 				keyDisplayed = true;
@@ -351,8 +357,11 @@ int main() {
 					logReader.FindKey();
 					if (logReader.expedition.keys.empty()) 
 						keyDisplayed = true; // no any key exists
-					else 
+					else {
 						ShowKeys(logReader.expedition.keys);
+						if (Marker::MarkKeys(logReader.expedition.name, logReader.expedition.keys))
+							ShellExecuteA(NULL, "open", ".\\MAP", NULL, NULL, SW_SHOWDEFAULT);
+					}
 				}
 
 				keyDisplayed = true;

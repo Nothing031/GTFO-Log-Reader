@@ -26,7 +26,7 @@ namespace InLevelFilters {
 	static constexpr const char* ObjectiveStateChanged = "----- NEW STATE";
 	static constexpr const char* c_MainObjectiveClear = "MAIN_STATUS: war";
 	static constexpr const char* c_SecondObjectiveClear = "SECOND_STATUS: war";
-	static constexpr const char* c_SecondObjectiveClear = "THIRD_STATUS: war";
+	static constexpr const char* c_ThirdObjectiveClear = "THIRD_STATUS: war";
 
 
 
@@ -99,7 +99,7 @@ typedef struct _Position {
 }Position;
 
 typedef struct _KEY {
-	int ri;
+	int index;
 	int zone;
 	std::string name;
 }KEY;
@@ -110,8 +110,6 @@ typedef struct _HSU {
 	std::string area;
 }HSU;
 
-
-
 typedef struct _REACTORSTARTUP {
 	int startupTime;
 	int startupCompleteTime;
@@ -120,7 +118,7 @@ typedef struct _REACTORSTARTUP {
 typedef struct _DOORINFO {
 	int index;
 	int zoneEnteredTime;
-	std::string zoneName = "ZONE_?";
+	std::string name = "ZONE_?";
 }DOORINFO;
 
 typedef struct _CLEARINFO {

@@ -228,7 +228,7 @@ void LogReader::FindKey()
 			i += 2;
 			for (; logData[i].find("AREA RESULT") != NPOS; i++);
 			key.zone = stoi(SubByKey(logData[i], "zone: ZONE", " function:"));
-			key.ri = stoi(SubByKey(logData[i], "ri: ", " had"));
+			key.index = stoi(SubByKey(logData[i], "ri: ", " had"));
 
 			Keys.push_back(key);
 		}

@@ -74,6 +74,9 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <TargetName>GTFO Log Reader</TargetName>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <TargetName>GTFO Log Reader</TargetName>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -115,7 +118,7 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>C:\opencv\build\x64\vc16\bin\opencv_world490d.dll;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>C:\opencv\build\x64\vc16\lib\opencv_world490d.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>C:\opencv\build\x64\vc16\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -136,20 +139,21 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>C:\opencv\build\x64\vc16\bin\opencv_world490.dll;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>C:\opencv\build\x64\vc16\lib\opencv_world490.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>C:\opencv\build\x64\vc16\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="src\audio.cpp" />
     <ClCompile Include="src\LogReader.cpp" />
     <ClCompile Include="src\main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="opencv_world490.dll" />
+    <None Include="opencv_world490d.dll" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\audio.h" />
+    <ClInclude Include="src\AudioManager.hpp" />
     <ClInclude Include="src\Marker.hpp" />
     <ClInclude Include="src\JsonManager.hpp" />
     <ClInclude Include="src\LogReader.h" />

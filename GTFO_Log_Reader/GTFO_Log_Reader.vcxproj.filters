@@ -21,12 +21,11 @@
     <ClCompile Include="src\LogReader.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\audio.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="opencv_world490.dll" />
+    <None Include="opencv_world490d.dll" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\data.h">
@@ -44,7 +43,7 @@
     <ClInclude Include="src\utils.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\audio.h">
+    <ClInclude Include="src\AudioManager.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\JsonManager.hpp">

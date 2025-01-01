@@ -18,7 +18,7 @@ class LogReader
 {
 public:
     bool initSuccess;
-    bool synced; 
+    bool synced;
 
 	std::string logPath;
     std::ifstream logStream;
