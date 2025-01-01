@@ -28,8 +28,6 @@ namespace InLevelFilters {
 	static constexpr const char* c_SecondObjectiveClear = "SECOND_STATUS: war";
 	static constexpr const char* c_ThirdObjectiveClear = "THIRD_STATUS: war";
 
-
-
 	// Doors
 	static constexpr const char* Door_Scan_Triggered = "LG_SecurityDoor_Locks";
 	static constexpr const char* Door_Opened = "OnDoorIsOpened:";
@@ -61,8 +59,6 @@ enum COLOR {
 	LIGHT_YELLOW = 14,
 	LIGHT_WHITE = 15
 };
-
-
 
 enum class eExpeditionProgress {
 	NoLobby,
