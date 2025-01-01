@@ -404,3 +404,4 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+/GTFO_Log_Reader/MAPS
