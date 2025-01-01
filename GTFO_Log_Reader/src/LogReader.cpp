@@ -11,7 +11,7 @@ LogReader::~LogReader() {
 bool LogReader::Init(std::stack<CLEARINFO>* pStack)
 {
 	initSuccess = false;
-	logPath = getFilePath();
+	logPath = GetFilePath();
 	if (logPath.empty()) return false;
 
 	logStream = std::ifstream(this->logPath);
@@ -28,7 +28,7 @@ bool LogReader::Init(std::stack<CLEARINFO>* pStack)
 	initSuccess = true;
 	return true;
 }
-std::string LogReader::getFilePath()
+std::string LogReader::GetFilePath()
 {
 	wchar_t* localAppData = nullptr;
 	SHGetKnownFolderPath(FOLDERID_LocalAppDataLow, 0, NULL, &localAppData);

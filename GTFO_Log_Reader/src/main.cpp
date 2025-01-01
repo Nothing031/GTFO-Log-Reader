@@ -215,6 +215,11 @@ void ShowExpedition(const string& rundown) {
 	gotoxy(17, 1);
 	cout << rundown;
 }
+void ClearFolder() {
+	for (const auto& file : std::filesystem::directory_iterator("MAP")) {
+		filesystem::remove(file);
+	}
+}
 
 std::string GetLogPath() {
 	wchar_t* localAppData = nullptr;
@@ -242,7 +247,6 @@ std::string GetLogPath() {
 void Init() {
 	setlocale(LC_ALL, "");
 	SetConsoleTitleA("GTFO LOG READER");
-
 	// get handles
 	consoleHwnd = GetConsoleWindow();
 	hConsoleOutput = GetStdHandle(STD_OUTPUT_HANDLE);
@@ -344,6 +348,7 @@ int main() {
 						keyDisplayed = true; // no any key exists
 					else {
 						ShowKeys(logReader.expedition.keys);
+						ClearFolder();
 						if(Marker::MarkKeys(logReader.expedition.name, logReader.expedition.keys))
 							ShellExecuteA(NULL, "open", ".\\MAP", NULL, NULL, SW_SHOWDEFAULT);
 					}
@@ -359,6 +364,7 @@ int main() {
 						keyDisplayed = true; // no any key exists
 					else {
 						ShowKeys(logReader.expedition.keys);
+						ClearFolder();
 						if (Marker::MarkKeys(logReader.expedition.name, logReader.expedition.keys))
 							ShellExecuteA(NULL, "open", ".\\MAP", NULL, NULL, SW_SHOWDEFAULT);
 					}

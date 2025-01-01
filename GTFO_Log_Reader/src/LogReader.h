@@ -34,7 +34,7 @@ public:
     ~LogReader();
 
     bool Init(std::stack<CLEARINFO>* pStack);
-    std::string getFilePath();
+    std::string GetFilePath();
     bool LogSynchronousCheck();
 
     EXPEDITION_DATA NewExpedition(const std::string& line);
