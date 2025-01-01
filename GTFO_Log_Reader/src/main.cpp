@@ -10,7 +10,6 @@
 #include <Windows.h>
 #include <conio.h>
 
-#include <opencv2/opencv.hpp>
 #include <nlohmann/json.hpp>
 
 #include "audio.h"

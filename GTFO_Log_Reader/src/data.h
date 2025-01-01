@@ -114,10 +114,7 @@ typedef struct _HSU {
 
 typedef struct _REACTORSTARTUP {
 	int startupTime;
-	int 
-
-
-
+	int startupCompleteTime;
 }REACTOR_STARTUP_INFO;
 
 typedef struct _DOORINFO {
