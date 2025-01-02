@@ -135,7 +135,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="x64\src\Mapper.cpp" />
+    <ClCompile Include="src\Mapper.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

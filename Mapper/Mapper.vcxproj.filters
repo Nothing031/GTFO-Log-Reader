@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="x64\src\Mapper.cpp">
+    <ClCompile Include="src\Mapper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

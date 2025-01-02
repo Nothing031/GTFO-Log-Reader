@@ -163,7 +163,7 @@ bool CreateIndex(string filePath) {
 		if (clickCount == 0) 
 			cout << "NextIndex : " + to_string(clickCount) + "                        ";
 		else {
-			cout << "Index Saved : " + to_string(clickCount - 1) + " | NextIndex : " + to_string(clickCount);
+			cout << "Index Saved : " + to_string(clickCount - 1) + " | NextIndex : " + to_string(clickCount) + "   ";
 		}
 		if (key == 61){
 			MapIndex mi;
