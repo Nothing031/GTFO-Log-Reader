@@ -3,11 +3,10 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/main/VisualStudio.gitignore
 
-/GTFO_Log_Reader/text.txt
-*/MAP/*
-*/opencv_world490.dll
-*/opencv_world490d.dll
 
+GTFO_Log_Reader/MAP/*
+/GTFO_Log_Reader/MAPS/*
+/Test/*
 
 # User-specific files
 *.rsuser
@@ -404,4 +403,5 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
-/GTFO_Log_Reader/MAPS
+
+/GTFO_Log_Reader/GTFO_Log_Reader.vcxproj.user
