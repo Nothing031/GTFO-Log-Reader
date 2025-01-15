@@ -403,5 +403,3 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
-
-/GTFO_Log_Reader/GTFO_Log_Reader.vcxproj.user

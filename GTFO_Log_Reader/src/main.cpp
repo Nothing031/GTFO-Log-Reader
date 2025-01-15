@@ -10,8 +10,6 @@
 #include <Windows.h>
 #include <conio.h>
 
-#include <nlohmann/json.hpp>
-
 #include "AudioManager.hpp"
 #include "data.h"
 #include "LogReader.h"
@@ -26,7 +24,6 @@ using namespace nlohmann;
 #define CLEAR_INFO_MAX 16
 
 // GLOBAL VARIABLE
-bool NOIMAGE = true;
 
 HWND consoleHwnd;
 HWND hGTFO;
@@ -34,7 +31,6 @@ HANDLE hConsoleOutput;
 HANDLE hConsoleInput;
 
 std::stack<CLEARINFO> clearInfoStack;
-///////////////////
 
 #define SLEEP(duration) std::this_thread::sleep_for(std::chrono::milliseconds(duration))
 #define SET_COLOR(color) SetConsoleTextAttribute(hConsoleOutput, color);
@@ -321,11 +317,11 @@ int main() {
 		logReader.ReadFile();
 		logReader.ParseLog();
 		switch (logReader.expedition.progress) {
-			case eExpeditionProgress::NoLobby :{
+			case eExpeditionState::NoLobby :{
 					ShowExpedition("    ");
 					break;
 				}
-			case eExpeditionProgress::Lobby: {
+			case eExpeditionState::Lobby: {
 				// show rundown info
 				if (prevExpeHash != logReader.expedition.hash) {
 					ShowExpedition(logReader.expedition.name);
@@ -340,7 +336,7 @@ int main() {
 				keyDisplayed = false;
 				break;
 				}
-			case eExpeditionProgress::ItemSpawned: {
+			case eExpeditionState::DistItemSpawnEnd: {
 				// show key info
 				if (!keyDisplayed) {
 					logReader.FindKey();
@@ -357,7 +353,7 @@ int main() {
 				keyDisplayed = true;
 				break;
 			}
-			case eExpeditionProgress::InLevel: {
+			case eExpeditionState::InLevel: {
 				if (!keyDisplayed) {
 					logReader.FindKey();
 					if (logReader.expedition.keys.empty()) 
@@ -374,7 +370,7 @@ int main() {
 				clearInfoDisplayed = false;
 				break;
 			}
-			case eExpeditionProgress::ExpeditionDone: {
+			case eExpeditionState::ExpeditionDone: {
 				// TODO show clear time
 				if (!clearInfoDisplayed) {
 					ShowClearInfo();

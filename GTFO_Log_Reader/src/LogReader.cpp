@@ -142,7 +142,7 @@ void LogReader::ReadFile()
 	tempPos = logStream.tellg();
 	if (tempPos != -1)
 		lastStreamPos = tempPos;
-	
+	logData.push_back(line);
 	while (std::getline(logStream, line)) {
 		tempPos = logStream.tellg();
 		if (tempPos != -1)
@@ -157,8 +157,8 @@ void LogReader::ParseLog()
 	// NoLobby
 	// Lobby
 	// Generating
-	// ItemSpawning
-	// ItemSpawned
+	// DistItemSpawnStart
+	// DistItemSpawnEnd
 	// StopElevatorRide
 	// InLevel
 	// ExpeditionDone
@@ -167,15 +167,15 @@ void LogReader::ParseLog()
 		if (logData[lastCheckedIndex].find(Filters::Lobby) != NPOS) {
 			expedition.Index.Lobby = lastCheckedIndex;
 			expedition = NewExpedition(logData[lastCheckedIndex]);
-			expedition.progress = eExpeditionProgress::Lobby;
+			expedition.progress = eExpeditionState::Lobby;
 		}
 		else if (logData[lastCheckedIndex].find(Filters::ItemSpawning) != NPOS) {
 			expedition.Index.itemSpawnStart = lastCheckedIndex;
-			expedition.progress = eExpeditionProgress::ItemSpawning;
+			expedition.progress = eExpeditionState::DistItemSpawnStart;
 		}
 		else if (logData[lastCheckedIndex].find(Filters::ItemSpawned) != NPOS) {
 			expedition.Index.itemSpawnEnd = lastCheckedIndex;
-			expedition.progress = eExpeditionProgress::ItemSpawned;
+			expedition.progress = eExpeditionState::DistItemSpawnEnd;
 		}
 		else if (logData[lastCheckedIndex].find(Filters::b_GameStateManager) != NPOS) {
 			if (logData[lastCheckedIndex].find(Filters::c_Generating) != NPOS) {
@@ -183,21 +183,21 @@ void LogReader::ParseLog()
 			}
 			else if (logData[lastCheckedIndex].find(Filters::c_NoLobby) != NPOS) {
 				expedition.Index.NoLobby = lastCheckedIndex;
-				expedition.progress = eExpeditionProgress::NoLobby;
+				expedition.progress = eExpeditionState::NoLobby;
 			}
 			else if (logData[lastCheckedIndex].find(Filters::c_StopElevatorRide) != NPOS) {
 				expedition.Index.StopElevatorRide = lastCheckedIndex;
-				expedition.progress = eExpeditionProgress::StopElevatorRide;
+				expedition.progress = eExpeditionState::StopElevatorRide;
 			}
 			else if (logData[lastCheckedIndex].find(Filters::c_InLevel) != NPOS) {
 				expedition.Index.InLevel = lastCheckedIndex;
-				expedition.progress = eExpeditionProgress::InLevel;
+				expedition.progress = eExpeditionState::InLevel;
 				std::string gtfoTime = logData[expedition.Index.InLevel].substr(0, 12);
 				expedition.expeditionStartTime = gtfoTime_to_msTime(gtfoTime);
 			}
 			else if (logData[lastCheckedIndex].find(Filters::c_ExpeditionDone) != NPOS) {
 				expedition.Index.ExpeditionDone = lastCheckedIndex;
-				expedition.progress = eExpeditionProgress::ExpeditionDone;
+				expedition.progress = eExpeditionState::ExpeditionDone;
 				std::string gtfoTime = logData[expedition.Index.ExpeditionDone].substr(0, 12);
 				expedition.expeditoinEndTime = gtfoTime_to_msTime(gtfoTime);
 

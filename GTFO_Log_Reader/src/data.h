@@ -60,12 +60,13 @@ enum COLOR {
 	LIGHT_WHITE = 15
 };
 
-enum class eExpeditionProgress {
+enum class eExpeditionState {
 	NoLobby,
 	Lobby,
 	Generating,
-	ItemSpawning,
-	ItemSpawned,
+	NewSession,
+	DistItemSpawnStart,
+	DistItemSpawnEnd,
 	StopElevatorRide,
 	InLevel,
 	ExpeditionDone // success, fail, abort
@@ -101,9 +102,9 @@ typedef struct _KEY {
 }KEY;
 
 typedef struct _HSU {
+	int zone;
+	int index;
 	std::string name;
-	std::string zone;
-	std::string area;
 }HSU;
 
 typedef struct _REACTORSTARTUP {
@@ -140,7 +141,7 @@ typedef struct _EXPEDITION_DATA {
 	int seed = 0;
 	size_t hash;
 	std::string name = "?";
-	eExpeditionProgress progress = eExpeditionProgress::NoLobby;
+	eExpeditionState progress = eExpeditionState::NoLobby;
 	
 	EXPEDITION_INDEX Index;
 	

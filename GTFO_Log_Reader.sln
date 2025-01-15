@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GTFO_Log_Reader", "GTFO_Log
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Mapper", "Mapper\Mapper.vcxproj", "{07B256E2-636D-4CCE-A437-2B1C34902F7B}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Test", "Test\Test.vcxproj", "{2EA24C3E-D850-4BD1-80A3-3FC1F971E670}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -31,8 +33,19 @@ Global
 		{07B256E2-636D-4CCE-A437-2B1C34902F7B}.Release|x64.Build.0 = Release|x64
 		{07B256E2-636D-4CCE-A437-2B1C34902F7B}.Release|x86.ActiveCfg = Release|Win32
 		{07B256E2-636D-4CCE-A437-2B1C34902F7B}.Release|x86.Build.0 = Release|Win32
+		{2EA24C3E-D850-4BD1-80A3-3FC1F971E670}.Debug|x64.ActiveCfg = Debug|x64
+		{2EA24C3E-D850-4BD1-80A3-3FC1F971E670}.Debug|x64.Build.0 = Debug|x64
+		{2EA24C3E-D850-4BD1-80A3-3FC1F971E670}.Debug|x86.ActiveCfg = Debug|Win32
+		{2EA24C3E-D850-4BD1-80A3-3FC1F971E670}.Debug|x86.Build.0 = Debug|Win32
+		{2EA24C3E-D850-4BD1-80A3-3FC1F971E670}.Release|x64.ActiveCfg = Release|x64
+		{2EA24C3E-D850-4BD1-80A3-3FC1F971E670}.Release|x64.Build.0 = Release|x64
+		{2EA24C3E-D850-4BD1-80A3-3FC1F971E670}.Release|x86.ActiveCfg = Release|Win32
+		{2EA24C3E-D850-4BD1-80A3-3FC1F971E670}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CE4D258F-8BEB-481E-BCE6-7839D5026E3D}
 	EndGlobalSection
 EndGlobal
